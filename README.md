@@ -21,3 +21,15 @@ python main.py -i 1905.11946 -m publaynet
 
 model_name list = {publaynet}
 
+### Citation
+
+```
+@article{shen2021layoutparser,
+  title={LayoutParser: A Unified Toolkit for Deep Learning Based Document Image Analysis},
+  author={Shen, Zejiang and Zhang, Ruochen and Dell, Melissa and Lee, Benjamin Charles Germain and Carlson, Jacob and Li, Weining},
+  journal={arXiv preprint arXiv:2103.15348},
+  year={2021}
+}
+
+```
+
