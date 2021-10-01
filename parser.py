@@ -1,5 +1,5 @@
 from pdf2image import convert_from_path
-from models import PubLayNet_MaskRCNN, RetinaNet
+from models import PubLayNet_MaskRCNN, RetinaNet, PrimaLayout
 from utils import unroll_pdf_to_images, segment_page, parse_pages, configure_dirs, remove_temp_dir
 
 class Parser():
@@ -9,6 +9,9 @@ class Parser():
             self.model = PubLayNet_MaskRCNN()
         elif model_name == 'retinanet':
             self.model = RetinaNet()
+        elif model_name == 'primalayout':
+            self.model = PrimaLayout()
+
 
 
     def parse(self):

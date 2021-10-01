@@ -1,5 +1,4 @@
 import layoutparser as lp
-import torch
 
 class PubLayNet_MaskRCNN(object):
     def __init__(self):
@@ -29,3 +28,15 @@ class RetinaNet(object):
         return self.model.detect(image)
 
 
+class PrimaLayout(object):
+    def __init__(self):
+        self.model_path = 'lp://PrimaLayout/mask_rcnn_R_50_FPN_3x/config' # In model catalog
+        self.label_map = {1:"TextRegion", 2:"ImageRegion", 3:"TableRegion", 4:"MathsRegion", 5:"SeparatorRegion", 6:"OtherRegion"} # In model`label_map`
+        self.extra_config = ["MODEL.ROI_HEADS.SCORE_THRESH_TEST", 0.8] # Optional
+        self.model = lp.Detectron2LayoutModel(
+                    config_path = self.model_path,
+                    label_map = self.label_map,
+                    extra_config = self.extra_config
+                )
+    def predict(self, image):
+        return self.model.detect(image)
