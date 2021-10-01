@@ -1,4 +1,4 @@
-# Research_Paper_Parser
+# Research Paper Parser
 Repository for parsing research paper pdfs and outputting image segments
 
 ### Run
