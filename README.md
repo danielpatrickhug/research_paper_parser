@@ -9,3 +9,5 @@ pip install -r requirements.txt
 python main.py -i arxiv_id -m model_name
 ```
 
+model_name list = {publaynet}
+
