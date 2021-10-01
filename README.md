@@ -6,6 +6,11 @@ Repository for parsing research paper pdfs and outputting image segments
 [Docs](https://layout-parser.readthedocs.io/en/latest/notes/modelzoo.html) |
 [Model Zoo](https://layout-parser.readthedocs.io/en/latest/notes/modelzoo.html) |
 
+### TODO
+- Parse references and output a text file of arxiv links
+- Add a Fast API and frontend for interacting with code
+- Add GPT3 study note generation for research paper
+
 ### Run
 ``` bash
 conda create --name env-name
