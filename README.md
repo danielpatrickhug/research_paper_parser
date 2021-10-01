@@ -1,6 +1,10 @@
 # Research Paper Parser
 Repository for parsing research paper pdfs and outputting image segments
 
+[Source](https://github.com/Layout-Parser/layout-parser)
+[Docs](https://layout-parser.readthedocs.io/en/latest/notes/modelzoo.html)
+[Model Zoo](https://layout-parser.readthedocs.io/en/latest/notes/modelzoo.html)
+
 ### Run
 ``` bash
 conda create --name env-name
