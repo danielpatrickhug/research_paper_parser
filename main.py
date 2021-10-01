@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from parser import Parser
-from utils import download_arxiv_paper, remove_arxiv_paper
+from utils import download_arxiv_paper, remove_arxiv_paper, zip_output_dir
 
 def main():
     arg_parser = ArgumentParser()
@@ -11,6 +11,7 @@ def main():
     parser = Parser(file_name, args.id, args.model_name)
     parser.parse()
     remove_arxiv_paper(file_name)
+    zip_output_dir(args.id)
 
 
 

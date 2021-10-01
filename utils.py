@@ -4,8 +4,14 @@ import layoutparser as lp
 import os
 import shutil
 import arxiv
+import numpy as np
 
-def download_arxiv_paper(paper_id):
+
+def zip_output_dir(arxiv_id: str):
+    shutil.make_archive(f'./{arxiv_id}_zipped', 'zip', './output')
+    shutil.rmtree('./output')
+
+def download_arxiv_paper(paper_id: str) -> str:
     paper = next(arxiv.Search(id_list=[paper_id]).results())
     file_name = f"{paper_id}.pdf"
     # Download the PDF to the PWD with a default filename.
@@ -16,7 +22,7 @@ def remove_temp_dir():
     if os.path.exists('./temp'):
         shutil.rmtree('./temp')
 
-def remove_arxiv_paper(file_name):
+def remove_arxiv_paper(file_name: str):
     os.remove(file_name)
 
 def configure_dirs():
@@ -32,7 +38,7 @@ def unroll_pdf_to_images(images):
         # Save pages as images in the pdf
         images[i].save('./temp/page'+ str(i) +'.jpg', 'JPEG')
 
-def segment_page(text_blocks, idx, image, arxiv_id):
+def segment_page(text_blocks, idx: int, image, arxiv_id: str):
     for j, block in enumerate(text_blocks):
         segment_image = (block
                         .pad(left=30, right=30, top=30, bottom=30)
@@ -40,7 +46,7 @@ def segment_page(text_blocks, idx, image, arxiv_id):
         cv2.imwrite(f'./output/{arxiv_id}_page_{str(idx)}_segment_{str(j)}_paper.jpg', segment_image)
         print(f"Saving segment to ./output/{arxiv_id}_page_{str(idx)}_segment_{str(j)}_paper.jpg")
 
-def parse_pages(images, model,arxiv_id):
+def parse_pages(images, model, arxiv_id: str):
     for i in range(len(images)):
         image = cv2.imread(f"./temp/page{i}.jpg")
         image = image[..., ::-1] 
