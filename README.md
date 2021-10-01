@@ -2,6 +2,7 @@
 Repository for parsing research paper pdfs and outputting image segments
 
 | [Source](https://github.com/Layout-Parser/layout-parser) |
+[Paper](https://arxiv.org/abs/2103.15348) |
 [Docs](https://layout-parser.readthedocs.io/en/latest/notes/modelzoo.html) |
 [Model Zoo](https://layout-parser.readthedocs.io/en/latest/notes/modelzoo.html) |
 
