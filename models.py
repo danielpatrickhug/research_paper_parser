@@ -15,6 +15,17 @@ class PubLayNet_MaskRCNN(object):
         return self.model.detect(image)
 
 
-
+class RetinaNet(object):
+    def __init__(self):
+        self.model_path = 'lp://HJDataset/retinanet_R_50_FPN_3x/config' # In model catalog
+        self.label_map = {1:"Page Frame", 2:"Row", 3:"Title Region", 4:"Text Region", 5:"Title", 6:"Subtitle", 7:"Other"} # In model`label_map`
+        self.extra_config = ["MODEL.ROI_HEADS.SCORE_THRESH_TEST", 0.8] # Optional
+        self.model = lp.Detectron2LayoutModel(
+                    config_path = self.model_path,
+                    label_map = self.label_map,
+                    extra_config = self.extra_config
+                )
+    def predict(self, image):
+        return self.model.detect(image)
 
 
